@@ -4,34 +4,34 @@ import pickle
 import streamlit as st
 from PIL import Image
 
-with open(r'C:\Users\gj979\PycharmProjects\Toxic-Comment-Classification\toxic_vect.pkl', 'rb') as f:
+with open('toxic_vect.pkl', 'rb') as f:
     toxic = pickle.load(f)
-with open(r'C:\Users\gj979\PycharmProjects\Toxic-Comment-Classification\toxic_model.pkl', 'rb') as f:
+with open('toxic_model.pkl', 'rb') as f:
     toxic_model = pickle.load(f)
-with open(r'C:\Users\gj979\PycharmProjects\Toxic-Comment-Classification\severe_toxic_vect.pkl', 'rb') as f:
+with open('severe_toxic_vect.pkl', 'rb') as f:
     severe_toxic = pickle.load(f)
-with open(r'C:\Users\gj979\PycharmProjects\Toxic-Comment-Classification\severe_toxic_model.pkl', 'rb') as f:
+with open('severe_toxic_model.pkl', 'rb') as f:
     severe_toxic_model = pickle.load(f)
-with open(r'C:\Users\gj979\PycharmProjects\Toxic-Comment-Classification\threat_vect.pkl', 'rb') as f:
+with open('threat_vect.pkl', 'rb') as f:
     threat = pickle.load(f)
-with open(r'C:\Users\gj979\PycharmProjects\Toxic-Comment-Classification\threat_model.pkl', 'rb') as f:
+with open('threat_model.pkl', 'rb') as f:
     threat_model = pickle.load(f)
-with open(r'C:\Users\gj979\PycharmProjects\Toxic-Comment-Classification\obscene_vect.pkl', 'rb') as f:
+with open('obscene_vect.pkl', 'rb') as f:
     obscene = pickle.load(f)
-with open(r'C:\Users\gj979\PycharmProjects\Toxic-Comment-Classification\obscene_model.pkl', 'rb') as f:
+with open('obscene_model.pkl', 'rb') as f:
     obscene_model = pickle.load(f)
-with open(r'C:\Users\gj979\PycharmProjects\Toxic-Comment-Classification\insult_vect.pkl', 'rb') as f:
+with open('insult_vect.pkl', 'rb') as f:
     insult = pickle.load(f)
-with open(r'C:\Users\gj979\PycharmProjects\Toxic-Comment-Classification\insult_model.pkl', 'rb') as f:
+with open('insult_model.pkl', 'rb') as f:
     insult_model = pickle.load(f)
-with open(r'C:\Users\gj979\PycharmProjects\Toxic-Comment-Classification\identity_hate_vect.pkl', 'rb') as f:
+with open('identity_hate_vect.pkl', 'rb') as f:
     identity_hate = pickle.load(f)
-with open(r'C:\Users\gj979\PycharmProjects\Toxic-Comment-Classification\identity_hate_model.pkl', 'rb') as f:
+with open('identity_hate_model.pkl', 'rb') as f:
     identity_hate_model = pickle.load(f)
 
 def main():
     st.title("Toxic Comment Classifier Using NLP and ML")
-    image = Image.open(r'C:\Users\gj979\PycharmProjects\Toxic-Comment-Classification\Image.jpg')
+    image = Image.open('Image.jpg')
     st.image(image, use_column_width=True)
 
     Input = st.text_input("Don't Hold Back - Be as rude as you can [in english only]")
