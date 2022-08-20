@@ -1,7 +1,6 @@
-numpy
-pandas
-pickle
-streamlit
-sklearn
-scikit-learn
-PIL
+numpy==1.23.2
+pandas==1.4.3
+streamlit==1.12.0
+sklearn==0.0
+scikit-learn==1.1.2
+Pillow==9.2.0
