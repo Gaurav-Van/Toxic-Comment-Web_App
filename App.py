@@ -112,32 +112,29 @@ def toxic_classify(Input):
          classifications.append('Non Identity hate')
     return classifications
 
+user_query = st.chat_input("Type your comment...")
 
-if __name__ == '__main__':
-
-    user_query = st.chat_input("Type your comment...")
-
-    for message in st.session_state.chat_history:
-        if isinstance(message, AIMessage):
-            with st.chat_message("AI"):
-                st.markdown(message.content, unsafe_allow_html=True)
-        elif isinstance(message, HumanMessage):
-            with st.chat_message("Human"):
-                st.markdown(message.content)
-    
-    if user_query is not None and user_query.strip() != "":
-        st.session_state.chat_history.append(HumanMessage(content=user_query))
-
-        result = toxic_classify(user_query)
-
-        with st.chat_message("Human"):
-            st.markdown(user_query)
-
+for message in st.session_state.chat_history:
+    if isinstance(message, AIMessage):
         with st.chat_message("AI"):
-            try:
-                response = f"Hmm.. According to my analysis, your comment <span style='color:yellow'><i>{user_query}</i></span> can be classified as: \n\n" + "\n".join(f"- {i}" for i in result)
-                st.markdown(response, unsafe_allow_html=True)
-                st.session_state.chat_history.append(AIMessage(content=response))
-            except Exception as e:
-                st.warning("I am Sorry. It looks like I made some mistake while trying to classify. Please Try Again. I will try my best")
-                st.warning("Tip: Check for any mistake in the comment. Also Supported Language: English")
+            st.markdown(message.content, unsafe_allow_html=True)
+    elif isinstance(message, HumanMessage):
+        with st.chat_message("Human"):
+            st.markdown(message.content)
+    
+if user_query is not None and user_query.strip() != "":
+    st.session_state.chat_history.append(HumanMessage(content=user_query))
+
+    result = toxic_classify(user_query)
+
+    with st.chat_message("Human"):
+        st.markdown(user_query)
+
+    with st.chat_message("AI"):
+        try:
+            response = f"Hmm.. According to my analysis, your comment <span style='color:yellow'><i>{user_query}</i></span> can be classified as: \n\n" + "\n".join(f"- {i}" for i in result)
+            st.markdown(response, unsafe_allow_html=True)
+            st.session_state.chat_history.append(AIMessage(content=response))
+        except Exception as e:
+            st.warning("I am Sorry. It looks like I made some mistake while trying to classify. Please Try Again. I will try my best")
+            st.warning("Tip: Check for any mistake in the comment. Also Supported Language: English")
